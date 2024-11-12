@@ -1,0 +1,312 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Para ocupar toda la altura de la pantalla */
+}
+
+header {
+    background-color: #4a90e2;
+    width: 100%;
+    padding: 1em;
+    color: #fff;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #357ABD;
+}
+
+main {
+    flex: 1; /* Ocupa el espacio disponible entre header y footer */
+    width: 90%;
+    max-width: 1200px; /* Aumentar el ancho máximo para más espacio */
+    padding: 2em 0;
+    margin: auto;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+section h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: #4a90e2;
+    text-align: center;
+}
+
+img, video {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 1em;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    width: 100%;
+    text-align: center;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 2em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1em 2em;
+    border-radius: 8px;
+}
+
+.hero-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.3em;
+}
+
+/* Contexto de la Historia */
+#contexto {
+    padding: 2em;
+    text-align: center;
+    background-color: #f9f9fc;
+    margin-bottom: 2em;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contexto h2 {
+    font-size: 2em;
+    color: #4a90e2;
+    margin-bottom: 1em;
+}
+
+/* Plataformas Transmedia */
+#plataformas {
+    padding: 2em;
+    text-align: center;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#plataformas h2 {
+    font-size: 2em;
+    color: #4a90e2;
+    margin-bottom: 1em;
+}
+
+.platform-row {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    flex-wrap: nowrap; /* Evita que los elementos se ajusten a la siguiente línea */
+}
+
+.platform {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 1.5em;
+    width: 100%;
+    max-width: 250px; /* Ancho máximo reducido */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.platform:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.platform img {
+    width: 100%;
+    height: 180px; /* Altura fija para uniformar */
+    border-radius: 8px;
+    margin-bottom: 1em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* Ajusta la imagen para que ocupe todo el espacio sin distorsionarse */
+}
+
+.platform h3 {
+    font-size: 1.4em;
+    color: #4a90e2;
+    margin-bottom: 0.5em;
+}
+
+.platform p {
+    font-size: 1em;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 800px) {
+    .platform-row {
+        flex-wrap: wrap; /* Permite que los elementos se ajusten a múltiples líneas */
+    }
+}
+
+/* Estilos para el carrusel de personajes */
+.contain {
+    width: 100%;
+    margin-top: 2em;
+    text-align: center;
+    height: auto;
+}
+
+.row {
+    width: 100%;
+    padding: 0 1em;
+    min-height: 380px; /* Establece una altura mínima para el contenedor de la fila */
+}
+
+.row__inner {
+    display: flex;
+    transition: transform 450ms;
+    font-size: 0;
+    white-space: nowrap;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    justify-content: center; /* Centrar el carrusel */
+    gap: 20px; /* Espacio entre cada personaje */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
+}
+
+.tile {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 300px; /* Aumenta la altura para acomodar la imagen y el texto */
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Añade una transición suave */
+    transform-origin: center center;
+    text-align: center;
+    border-radius: 15px;
+}
+
+h2 {
+    font-size: 2em;
+    color: #4a90e2;
+    text-align: center;
+    margin-bottom: 1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    font-weight: bold;
+    padding-bottom: 0.3em;
+
+}
+.tile:hover {
+    transform: scale(1.05); /* Ligera ampliación en hover */
+    box-shadow: 0px 6px 12px rgb(2, 40, 72); /* Sombra azul suave en hover */
+}
+
+
+.tile__img {
+    width: 100%;
+    height: 180px; /* Ajuste de la altura de la imagen */
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.tile__info {
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 190px; /* Coloca el texto justo debajo de la imagen */
+    left: 0;
+    right: 0;
+    
+    border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+.tile__name {
+    font-size: 1.1em;
+    color: #4a90e2;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.tile__description {
+    font-size: 0.60em;
+    color: #666;
+    line-height: 1.3;
+    padding: 0 5px;
+    text-align: center;
+    white-space: normal;
+}
+
+/* Mostrar la descripción al hacer hover */
+.tile:hover .tile__info {
+    opacity: 1;
+}
+
+/* Efecto de hover */
+.row__inner:hover {
+    transform: translate3d(-30px, 0, 0);
+}
+
+.row__inner:hover .tile {
+    opacity: 0.3;
+}
+
+.row__inner:hover .tile:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.tile:hover ~ .tile {
+    transform: translate3d(50px, 0, 0);
+}
