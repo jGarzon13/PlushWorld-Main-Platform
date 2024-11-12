@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Desarrollo de Plush World</h1>
+        <h1>PlushWorld/Dev</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -20,23 +20,97 @@
     </header>
 
     <main>
-        <section>
-            <h2>Imágenes del Desarrollo</h2>
-            <img src="assets/imagen1.jpg" alt="Imagen de desarrollo 1">
-            <img src="assets/imagen2.jpg" alt="Imagen de desarrollo 2">
-            <!-- Añade más imágenes del desarrollo -->
+        <section id="intro">
+            <h2>Todos los contenidos utilizados durante el semestre</h2>
+            <p>Aquí están todos los contenidos que fueron utilizados para el desarrollo de este proyecto a través de todo el semestre.</p>
         </section>
 
-        <section>
-            <h2>Videos del Proyecto</h2>
-            <video src="assets/video1.mp4" controls></video>
-            <video src="assets/video2.mp4" controls></video>
-            <!-- Añade más videos del desarrollo -->
+        <!-- Sección de Videos -->
+        <section id="videos">
+            <h2>Videos</h2>
+            <div class="video-container">
+                <div>
+                    <h3>Teaser de Plush World</h3>
+                    <video controls width="100%">
+                        <source src="assets/dev/PW.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+                <div>
+                    <h3>Teaser de Quest For The Magic Feast</h3>
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/fnKkckaqZoU?si=UYzzdRyXGkj0xact" 
+                            frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Carrusel de Imágenes -->
+        <section id="imagenes">
+            <h2>Imágenes</h2>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <img src="assets/dev/1.jpg" alt="Imagen 1">
+                    <img src="assets/dev/2.jpg" alt="Imagen 2">
+                    <img src="assets/dev/3.jpg" alt="Imagen 3">
+                    <img src="assets/dev/4.jpg" alt="Imagen 4">
+                    <img src="assets/dev/5.jpg" alt="Imagen 5">
+                    <img src="assets/dev/6.jpg" alt="Imagen 6">
+                    <img src="assets/dev/7.jpg" alt="Imagen 7">
+                    <img src="assets/dev/8.jpg" alt="Imagen 8">
+                    <img src="assets/dev/9.jpg" alt="Imagen 9">
+                    <img src="assets/dev/10.jpg" alt="Imagen 10">
+                    <img src="assets/dev/11.jpg" alt="Imagen 11">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Storyboards -->
+        <section id="storyboard">
+            <h2>Storyboards</h2>
+            <div class="storyboard-selector">
+                <label for="storyboardSelect">Selecciona un storyboard:</label>
+                <select id="storyboardSelect">
+                    <option value="assets/dev/PlushWorld Teaser Storyboard.pdf">Teaser de Plush World</option>
+                    <option value="assets/dev/QFTMF Storyboard.pdf">Teaser de Quest For The Magic Feast</option>
+                </select>
+            </div>
+            <div id="pdfViewer">
+                <embed id="pdfEmbed" src="assets/dev/PlushWorld Teaser Storyboard.pdf" type="application/pdf" width="100%" height="400px">
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Plush World - Diseño Transmedia 2024-3</p>
     </footer>
+
+    <!-- JavaScript para el carrusel de imágenes -->
+    <script>
+        const carouselInner = document.querySelector('.carousel-inner');
+        const images = document.querySelectorAll('.carousel-inner img');
+        let index = 0;
+
+        function startCarousel() {
+            setInterval(() => {
+                index++;
+                if (index >= images.length) {
+                    carouselInner.style.transition = 'none'; // Desactiva la transición temporalmente
+                    index = 0;
+                    carouselInner.style.transform = `translateX(0)`;
+                } else {
+                    carouselInner.style.transition = 'transform 0.5s ease'; // Reactiva la transición
+                    carouselInner.style.transform = `translateX(-${index * (images[0].offsetWidth + 16)}px)`;
+                }
+            }, 2000); // Cambia cada 2 segundos
+        }
+
+        window.onload = startCarousel;
+
+        // JavaScript para cambiar el PDF en el visor
+        document.getElementById('storyboardSelect').addEventListener('change', function() {
+            const selectedStoryboard = this.value;
+            document.getElementById('pdfEmbed').src = selectedStoryboard;
+        });
+    </script>
 </body>
 </html>
